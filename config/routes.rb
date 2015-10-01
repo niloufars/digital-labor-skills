@@ -1,10 +1,15 @@
 Rails.application.routes.draw do
+  authenticate :user do
+    resources :transcriptions, only: [:index]
+  end
+  resources :transcriptions, only: [:new, :create, :edit, :update, :destroy, :show]
+  devise_for :users
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  # root 'welcome#index'
-
+  root 'transcriptions#new'
+  get 'complete', to: 'static_pages#complete'
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

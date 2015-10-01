@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Content:</strong>
+  <%= @trascript.content %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @trascript.user_id %>
+</p>
+
+<%= link_to 'Edit', edit_trascript_path(@trascript) %> |
+<%= link_to 'Back', trascripts_path %>

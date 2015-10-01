@@ -1,0 +1,25 @@
+<%= form_for(@transcription) do |f| %>
+  <% if @transcription.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@transcription.errors.count, "error") %> prohibited this transcription from being saved:</h2>
+
+      <ul>
+      <% @transcription.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label "Enter the text here:" %><br>
+    <%= f.text_area(:data, cols: 80, rows: 20) %>
+  </div>
+  <div class="field">
+  <%= f.label "Worker ID:" %>
+    <%= f.text_field :user_id %>
+  </div>
+  <div class="actions">
+    <%= f.submit "Submit" %>
+  </div>
+<% end %>

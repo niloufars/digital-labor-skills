@@ -1,0 +1,2 @@
+module TrascriptsHelper
+end

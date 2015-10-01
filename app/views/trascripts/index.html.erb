@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Trascripts</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Content</th>
+      <th>User</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @trascripts.each do |trascript| %>
+      <tr>
+        <td><%= trascript.content %></td>
+        <td><%= trascript.user_id %></td>
+        <td><%= link_to 'Show', trascript %></td>
+        <td><%= link_to 'Edit', edit_trascript_path(trascript) %></td>
+        <td><%= link_to 'Destroy', trascript, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Trascript', new_trascript_path %>
