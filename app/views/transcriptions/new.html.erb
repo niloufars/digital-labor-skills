@@ -1,3 +1,34 @@
+<script>
+	var handler = function (e) { 
+	    handler.timestamp.push(e.timeStamp);
+
+
+	    if ( first_stroke ){
+	    	first_stroke = false;
+	    	handler.beginTime = handler.timestamp[0];
+	    	 
+	    }
+	   
+	    var n = handler.timestamp.length;
+	    handler.endTime = handler.timestamp[n-1];
+	    handler.keycount++;
+	    
+	    if ( handler.timestamp[n-1]-handler.timestamp[n-2] > 10000 ){
+	    	handler.idleTime += handler.timestamp[n-1]-handler.timestamp[n-2];
+	    }
+	    document.getElementById('keystrokeid').value = 'begin: ' + handler.beginTime + ', end: ' + handler.endTime + ', keycount: '+ handler.keycount + ', idleTime: ' + handler.idleTime;
+
+	}
+	first_stroke = true;
+	handler.beginTime = 0;
+	handler.endTime = 0;
+	handler.keycount = 0;
+	handler.idleTime = 0;
+	handler.timestamp = [];
+	window.addEventListener("keyup", handler);
+</script>
+
+
 <h1>New Transcription</h1>
 
 <p>This is a <span style="text-decoration: underline">timed task</span>, once accepted you have 5 minutes to complete the task, be mindful of your time.</p>
@@ -9,10 +40,6 @@
   <source src="http://stanford.edu/~niloufar/nightsky.mp3" type="audio/mpeg">
 	Your browser does not support the audio element.
 </audio>
-<div class="your-clock"></div>
-		
-		<script src="/assets/js/libs/jquery.js"></script>
-		<script src="/assets/js/flipclock/flipclock.min.js"></script>
 <%= render 'form' %>
 
 

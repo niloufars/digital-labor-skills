@@ -7,6 +7,7 @@
     <tr>
       <th>Data</th>
       <th>User</th>
+      <th>Keystroke</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -16,6 +17,7 @@
       <tr>
         <td><%= transcription.data %></td>
         <td><%= transcription.user_id %></td>
+        <td><%= transcription.keystroke %></td>
         <td><%= link_to 'Show', transcription %></td>
         <td><%= link_to 'Edit', edit_transcription_path(transcription) %></td>
         <td><%= link_to 'Destroy', transcription, method: :delete, data: { confirm: 'Are you sure?' } %></td>

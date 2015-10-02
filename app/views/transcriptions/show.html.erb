@@ -10,5 +10,15 @@
   <%= @transcription.user_id %>
 </p>
 
+<p>
+  <strong>Keystroke:</strong>
+  <%= @transcription.keystroke %>
+</p>
+
+<p>
+  <strong>Keytime:</strong>
+  <%= @transcription.keytime %>
+</p>
+
 <%= link_to 'Edit', edit_transcription_path(@transcription) %> |
 <%= link_to 'Back', transcriptions_path %>

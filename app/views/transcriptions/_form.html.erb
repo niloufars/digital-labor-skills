@@ -19,6 +19,7 @@
   <%= f.label "Worker ID:" %>
     <%= f.text_field :user_id%>
   </div>
+  <%= f.hidden_field :keystroke, :value => "" , :id => 'keystrokeid'%>  
   <div class="actions">
     <%= f.submit "Submit" %>
   </div>

@@ -28,10 +28,9 @@ class TranscriptionsController < ApplicationController
   # POST /transcriptions.json
   def create
     @transcription = Transcription.new(transcription_params)
-
     respond_to do |format|
       if @transcription.save
-        format.html { redirect_to '/complete', notice: 'Transcription was successfully created.' }
+        format.html { redirect_to '/complete', notice: @transcription }
         format.json { render :finish, status: :created, location: @transcription }
       else
         format.html { render :new }
@@ -73,6 +72,6 @@ class TranscriptionsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def transcription_params
-      params.require(:transcription).permit(:data, :user_id)
+      params.require(:transcription).permit(:data, :user_id, :keystroke, :keytime)
     end
 end
