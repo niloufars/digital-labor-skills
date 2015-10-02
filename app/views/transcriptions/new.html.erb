@@ -1,12 +1,18 @@
 <h1>New Transcription</h1>
 
-<p>Listen to the following audio clip and transcribe it:</p>
+<p>This is a <span style="text-decoration: underline">timed task</span>, once accepted you have 5 minutes to complete the task, be mindful of your time.</p>
+<p>Above 60% accuracy will be a accepted.</p>
 <p>If you have any questions, email us at researchproject97@gmail.com</p>
+
+<p>Listen to the following audio clip and transcribe it:</p>
 <audio controls>
   <source src="http://stanford.edu/~niloufar/nightsky.mp3" type="audio/mpeg">
 	Your browser does not support the audio element.
 </audio>
-
+<div class="your-clock"></div>
+		
+		<script src="/assets/js/libs/jquery.js"></script>
+		<script src="/assets/js/flipclock/flipclock.min.js"></script>
 <%= render 'form' %>
 
 
