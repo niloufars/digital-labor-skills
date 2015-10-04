@@ -17,6 +17,7 @@ class TranscriptionsController < ApplicationController
 
   # GET /transcriptions/new
   def new
+    @audioid=params[:id]
     @transcription = Transcription.new
   end
 
