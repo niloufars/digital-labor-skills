@@ -1,22 +1,22 @@
 <script>
 	var handler = function (e) { 
-	    handler.timestamp.push(e.timeStamp);
+		handler.timestamp.push(e.timeStamp);
 
 
-	    if ( first_stroke ){
-	    	first_stroke = false;
-	    	handler.beginTime = handler.timestamp[0];
-	    	 
-	    }
-	   
-	    var n = handler.timestamp.length;
-	    handler.endTime = handler.timestamp[n-1];
-	    handler.keycount++;
-	    
-	    if ( handler.timestamp[n-1]-handler.timestamp[n-2] > 10000 ){
-	    	handler.idleTime += handler.timestamp[n-1]-handler.timestamp[n-2];
-	    }
-	    document.getElementById('keystrokeid').value = 'begin: ' + handler.beginTime + ', end: ' + handler.endTime + ', keycount: '+ handler.keycount + ', idleTime: ' + handler.idleTime;
+		if ( first_stroke ){
+			first_stroke = false;
+			handler.beginTime = handler.timestamp[0];
+
+		}
+
+		var n = handler.timestamp.length;
+		handler.endTime = handler.timestamp[n-1];
+		handler.keycount++;
+
+		if ( handler.timestamp[n-1]-handler.timestamp[n-2] > 10000 ){
+			handler.idleTime += handler.timestamp[n-1]-handler.timestamp[n-2];
+		}
+		document.getElementById('keystrokeid').value = 'begin: ' + handler.beginTime + ', end: ' + handler.endTime + ', keycount: '+ handler.keycount + ', idleTime: ' + handler.idleTime;
 
 	}
 	first_stroke = true;
@@ -28,18 +28,17 @@
 	window.addEventListener("keyup", handler);
 </script>
 
-
 <h1>New Transcription</h1>
 
-<p>This is a <span style="text-decoration: underline">timed task</span>, once accepted you have 4 minutes to complete the task, be mindful of your time.</p> 
-<p>Above 60% accuracy will be a accepted.</p>
+<!-- <p>This is a <span style="text-decoration: underline">timed task</span>, once accepted you have 4 minutes to complete the task, be mindful of your time.</p> -->
+<p>Above 60% accuracy with the audio will be a accepted.</p>
 <p>If you have any questions, email us at researchproject97@gmail.com</p>
 
 <p>Listen to the following audio clip and transcribe it:</p>
 <audio controls>
-  <source src= <%= "http://stanford.edu/~niloufar/"+@audioid+".mp3" %> type="audio/mpeg">
-	Your browser does not support the audio element.
-</audio>
-<%= render 'form' %>
+	<source src= <%= "http://stanford.edu/~niloufar/"+@audioid+".mp3" %> type="audio/mpeg">
+		Your browser does not support the audio element.
+	</audio>
+	<%= render 'form' %>
 
 
