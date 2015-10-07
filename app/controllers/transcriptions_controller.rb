@@ -1,6 +1,6 @@
 class TranscriptionsController < ApplicationController
   before_action :set_transcription, only: [:show, :edit, :update, :destroy]
-
+  
   # GET /transcriptions
   # GET /transcriptions.json
   def index
@@ -18,6 +18,8 @@ class TranscriptionsController < ApplicationController
   # GET /transcriptions/new
   def new
     @audioid=params[:id]
+    @assignment_id = params['assignmentId']
+    @hit_id = params['hitId']
     @transcription = Transcription.new
   end
 
@@ -73,6 +75,6 @@ class TranscriptionsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def transcription_params
-      params.require(:transcription).permit(:data, :user_id, :keystroke, :keytime)
+      #params.require(:transcription).permit(:data, :user_id, :keystroke, :keytime)
     end
 end

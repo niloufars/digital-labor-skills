@@ -16,7 +16,7 @@
 		if ( handler.timestamp[n-1]-handler.timestamp[n-2] > 10000 ){
 			handler.idleTime += handler.timestamp[n-1]-handler.timestamp[n-2];
 		}
-		document.getElementById('keystrokeid').value = 'begin: ' + handler.beginTime + ', end: ' + handler.endTime + ', keycount: '+ handler.keycount + ', idleTime: ' + handler.idleTime;
+		document.getElementById('keystroke').value = 'begin: ' + handler.beginTime + ', end: ' + handler.endTime + ', keycount: '+ handler.keycount + ', idleTime: ' + handler.idleTime;
 
 	}
 	first_stroke = true;
@@ -26,7 +26,9 @@
 	handler.idleTime = 0;
 	handler.timestamp = [];
 	window.addEventListener("keyup", handler);
+	
 </script>
+
 
 <h1>New Transcription</h1>
 
@@ -40,5 +42,4 @@
 		Your browser does not support the audio element.
 	</audio>
 	<%= render 'form' %>
-
 
