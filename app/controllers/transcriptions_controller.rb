@@ -1,6 +1,6 @@
 class TranscriptionsController < ApplicationController
   before_action :set_transcription, only: [:show, :edit, :update, :destroy]
-  
+  before_filter :allow_iframe_requests
   # GET /transcriptions
   # GET /transcriptions.json
   def index
@@ -77,4 +77,7 @@ class TranscriptionsController < ApplicationController
     def transcription_params
       #params.require(:transcription).permit(:data, :user_id, :keystroke, :keytime)
     end
+    def allow_iframe_requests
+      response.headers.delete('X-Frame-Options')
+    end 
 end
