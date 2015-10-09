@@ -26,20 +26,33 @@
 	handler.idleTime = 0;
 	handler.timestamp = [];
 	window.addEventListener("keyup", handler);
-
+	document.onreadystatechange = function () {
+		if ( document.getElementById('assignment_id_box').innerHTML != 'ASSIGNMENT_ID_NOT_AVAILABLE'){
+			document.getElementById('preview_div').style.display = 'none';
+			document.getElementById('task_div').style.display = 'inline';
+		}
+	}
 </script>
 
+<div id="preview_div">
+	<h1>Transcription task</h1>
+	<p>In this task you will be give a one minute audio clip to transcribe. We are aiming at a near real-time transcription so you will have <span style="text-decoration: underline">5 minutes</span> to complete the task.</p>
+	<p>If your transcription has above 60% accuracy with the audio it will be a accepted.</p>
+	
+</div>
 
-<h1>New Transcription</h1>
-<%= @assignment_id  %>
-<!-- <p>This is a <span style="text-decoration: underline">timed task</span>, once accepted you have 4 minutes to complete the task, be mindful of your time.</p> -->
-<p>Above 60% accuracy with the audio will be a accepted.</p>
-<p>If you have any questions, email us at researchproject97@gmail.com</p>
+<div id="task_div"  style="display:none">
+	<h1>New Transcription</h1>
+	<div style="display: none;" id="assignment_id_box"><%= @assignment_id  %></div>
+	<p>This is a <span style="text-decoration: underline">timed task</span>, once accepted you have 5 minutes to complete the task, be mindful of your time.</p> 
+	<p>Above 60% accuracy with the audio will be a accepted.</p>
+	<p>If you have any questions, email us at researchproject97@gmail.com</p>
 
-<p>Listen to the following audio clip and transcribe it:</p>
-<audio controls>
-	<source src= <%= "https://stanford.edu/~niloufar/"+@audioid+".mp3" %> type="audio/mpeg">
-		Your browser does not support the audio element.
-	</audio>
-	<%= render 'form' %>
-
+	<p>Listen to the following audio clip and transcribe it:</p>
+	<audio controls>
+		<source src= <%= "https://stanford.edu/~niloufar/"+@audioid+".mp3" %> type="audio/mpeg">
+			Your browser does not support the audio element.
+		</audio>
+		
+		<%= render 'form' %>
+	</div>
