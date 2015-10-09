@@ -36,8 +36,8 @@
 
 <div id="preview_div">
 	<h1>Transcription task</h1>
-	<p>In this task you will be give a one minute audio clip to transcribe. We are aiming at a near real-time transcription so you will have <span style="text-decoration: underline">5 minutes</span> to complete the task.</p>
-	<p>If your transcription has above 60% accuracy with the audio it will be a accepted.</p>
+	<p>In this task you will be given a one minute audio clip to transcribe. We are aiming at a near real-time transcription so you will have <span style="text-decoration: underline">5 minutes</span> to complete the task.</p>
+	<p>If you achieve a 60% accuracy with the audio your work will be a accepted.</p>
 	
 </div>
 
@@ -53,6 +53,6 @@
 		<source src= <%= "https://stanford.edu/~niloufar/"+@audioid+".mp3" %> type="audio/mpeg">
 			Your browser does not support the audio element.
 		</audio>
-		
+
 		<%= render 'form' %>
 	</div>
