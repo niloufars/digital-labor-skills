@@ -35,12 +35,14 @@
 </script>
 
 <div id="preview_div">
-	<h1>Transcription task</h1>
+	
 
 		<% if @review == 'g' or @review == 'b' %>
+			<h1>Transcription review task</h1>
 			<p>In this task you will be given a five minute audio clip and a transcription. Your task is to listen to the audio and fix any problems in the transcription or fill in any missing parts.</p>
 			<p>You will see the audio clip after you accept the task.</p>
 		<% else %>
+			<h1>Transcription task</h1>
 			<p>In this task you will be given a one minute audio clip to transcribe. We are aiming at a near real-time transcription so you will have <span style="text-decoration: underline">4 minutes</span> to complete the task.</p>
 			<p>If you achieve a 60% accuracy with the audio your work will be a accepted. If your accuracy is between 50-60% you will be given a chance to fix your errors.</p>
 			<p>You will see the audio clip after you accept the task.</p>
