@@ -20,6 +20,7 @@ class TranscriptionsController < ApplicationController
     @audioid=params[:id]
     @assignment_id = params['assignmentId']
     @hit_id = params['hitId']
+    @review = params['review']
     @transcription = Transcription.new
   end
 
