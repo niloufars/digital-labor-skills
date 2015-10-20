@@ -58,6 +58,12 @@
 		<% if @review == 'g' or @review == 'b' %>
 			<p>In this task you will be given a five minute audio clip and a transcription. Your task is to listen to the audio and fix any problems in the transcription or fill in any missing parts.</p>
 			<p>If you have any questions, email us at researchproject97@gmail.com</p>
+		<% elsif @review == 'p' %>
+			<p>This is a <span style="text-decoration: underline">timed task</span>, once accepted you have 4 minutes to complete the task, be mindful of your time. </p> 
+			<p>If you achieve a 60% accuracy with the audio your work will be a accepted and you will earn 50 cents. Your earnings will increase with your accuracy, up to a maximum of $1, as illustrated in the figure below. The extra payment will be made through a bonus. If your accuracy is between 50-60% you will be given a chance to fix your errors and earn the base pay. </p>
+			<%= image_tag("Contract3.png", :alt => "bonus", :width => "400px") %>
+
+			<p>Listen to the following audio clip and transcribe it:</p>
 		<% else %>
 			<p>This is a <span style="text-decoration: underline">timed task</span>, once accepted you have 4 minutes to complete the task, be mindful of your time. </p> 
 			<p>If you achieve a 60% accuracy with the audio your work will be a accepted and you will earn 50 cents (if your accuracy is between 50-60% you will be given a chance to fix your errors). So please submit your work even if it is not complete. </p>
