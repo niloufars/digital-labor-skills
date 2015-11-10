@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  workerID: MyString
+  string: MyString
+  audioID: MyString
+  string: MyString
+  timeAt: MyString
+  integer: MyString
+  keyCount: MyString
+  integer: MyString
+
+two:
+  workerID: MyString
+  string: MyString
+  audioID: MyString
+  string: MyString
+  timeAt: MyString
+  integer: MyString
+  keyCount: MyString
+  integer: MyString
