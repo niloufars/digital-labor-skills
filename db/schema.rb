@@ -11,7 +11,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151002212615) do
+ActiveRecord::Schema.define(version: 20151110221817) do
+
+  create_table "trackers", force: :cascade do |t|
+    t.string   "workerID"
+    t.string   "audioID"
+    t.string   "timeAt"
+    t.string   "keyCount"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "transcriptions", force: :cascade do |t|
     t.text     "data"

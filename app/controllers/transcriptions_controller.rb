@@ -1,4 +1,5 @@
 class TranscriptionsController < ApplicationController
+  protect_from_forgery with: :exception
   before_action :set_transcription, only: [:show, :edit, :update, :destroy]
   before_filter :allow_iframe_requests, only: [:create]
   # GET /transcriptions
@@ -21,6 +22,7 @@ class TranscriptionsController < ApplicationController
     @assignment_id = params['assignmentId']
     @hit_id = params['hitId']
     @review = params['review']
+    @worker_id = params['workerId']
     @transcription = Transcription.new
   end
 
@@ -67,6 +69,7 @@ class TranscriptionsController < ApplicationController
       format.json { head :no_content }
     end
   end
+
 
   private
     # Use callbacks to share common setup or constraints between actions.

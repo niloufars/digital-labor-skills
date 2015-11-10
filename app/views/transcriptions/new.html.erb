@@ -19,6 +19,60 @@
 		document.getElementById('keystroke').value = 'begin: ' + handler.beginTime + ', end: ' + handler.endTime + ', keycount: '+ handler.keycount + ', idleTime: ' + handler.idleTime;
 
 	}
+	function sendTrackerData(timeAt) {
+	    var xmlhttp;
+
+	    if (window.XMLHttpRequest) {
+	        // code for IE7+, Firefox, Chrome, Opera, Safari
+	        xmlhttp = new XMLHttpRequest();
+	    } else {
+	        // code for IE6, IE5
+	        xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+	    }
+
+	    xmlhttp.onreadystatechange = function() {
+	        if (xmlhttp.readyState == XMLHttpRequest.DONE ) {
+	           if(xmlhttp.status == 200){
+	               alert("saved");
+	           }
+	           else if(xmlhttp.status == 400) {
+	              alert('There was an error 400')
+	           }
+	           else {
+	               alert('something else other than 200 was returned')
+	               alert(xmlhttp.status);
+	           }
+	        }
+	    }
+	    
+		xmlhttp.open("post", "/trackers");
+		var formData = new FormData();
+		formData.append('workerID', document.getElementById('worker_id_box').innerHTML);
+		formData.append('audioID', document.getElementById('audio_id_box').innerHTML);
+		formData.append('timeAt', timeAt);
+		formData.append('keyCount', handler.keycount);
+		xmlhttp.send(formData);
+	    
+	}
+	var ti = 240;
+	function startTime() {
+	    document.getElementById('timer').innerHTML = parseInt(ti/60) + ':' + ti%60;
+	    if ( ti<10 ){
+	    	document.getElementById('timer').style.color = "red";
+	    }
+	    if ( ti % 60 == 0 ){
+	    	sendTrackerData(ti);
+	    } 
+	    if ( ti==0 ){
+	    	document.getElementById('timer').innerHTML = "Your time is over, please submit the HIT before it expires."
+	    	document.getElementById('timer').style.fontSize = "110%";
+	    	document.getElementById('data').disabled = "disabled";
+	    }
+	    ti = ti-1;
+	    if ( ti>=0 )
+		    setTimeout(startTime, 1000);
+
+	}
 	first_stroke = true;
 	handler.beginTime = 0;
 	handler.endTime = 0;
@@ -26,10 +80,16 @@
 	handler.idleTime = 0;
 	handler.timestamp = [];
 	window.addEventListener("keyup", handler);
-	document.onreadystatechange = function () {
+	document.body.onload = function () {
+		
 		if ( document.getElementById('assignment_id_box').innerHTML != 'ASSIGNMENT_ID_NOT_AVAILABLE'){
 			document.getElementById('preview_div').style.display = 'none';
 			document.getElementById('task_div').style.display = 'inline';
+			if ( document.getElementById('audio_time_box').innerHTML === 't' ){
+				if ( document.getElementById('timer_amount_box').innerHTML === '5' )
+					ti = 300;
+				startTime();
+			}
 		}
 	}
 </script>
@@ -54,7 +114,7 @@
 
 	<div id="task_div"  style="display:none">
 		<h1>New Transcription</h1>
-
+		
 		<% if @review == 'g' or @review == 'b' %>
 			<p>In this task you will be given a five minute audio clip and a transcription. Your task is to listen to the audio and fix any problems in the transcription or fill in any missing parts.</p>
 			<p>If you have any questions, email us at researchproject97@gmail.com</p>
@@ -73,12 +133,17 @@
 				
 		<% end %>
 		<div style="display: none;" id="assignment_id_box"><%= @assignment_id  %></div>
-
+		<div style="display: none;" id="worker_id_box"><%= @worker_id  %></div>
+		<div style="display: none;" id ="audio_id_box"><%= @audioid %></div>
+		
+		<div style="display: none;" id ="audio_time_box"><% if @audioid === "p1t1" || @audioid === "p1gt2" || @audioid === "p1bt2" %>nt<% else %>t<%end%></div>
+		<div style="display: none;" id ="timer_amount_box"><% if @audioid === "p1t5" %>5<% else %>4<%end%></div>
 		<audio controls>
 			<source src= <%= "https://stanford.edu/~niloufar/audio/"+@audioid+".mp3" %> type="audio/mpeg">
 			Your browser does not support the audio element.
 		</audio>
-
+		<br><br>
+		<div id="timer" style="font-size: 200%"></div>
 		<%= render 'form' %>
 
 	</div>
