@@ -124,7 +124,7 @@
 			<p>If you achieve a 60% accuracy with the audio your work will be a accepted and you will earn 50 cents. Your earnings will increase with your accuracy, up to a maximum of $1, as illustrated in the figure below. The extra payment will be made through a bonus. If your accuracy is between 50-60% you will be given a chance to fix your errors and earn the base pay. </p>
 			<%= image_tag("Contract3.png", :alt => "bonus", :width => "400px") %>
 			
-		<% elsif @audioid === "p1t1" || @audioid === "p1gt2" || @audioid === "p1bt2" %>
+		<% elsif @audioid === "p1t1" || @audioid === "p1g2" || @audioid === "p1b2" %>
 			<p>If you achieve a 60% accuracy with the audio your work will be a accepted and you will earn 50 cents (if your accuracy is between 50-60% you will be given a chance to fix your errors). </p>
 		<% else %>
 			<p>This is a <span style="text-decoration: underline">timed task</span>, once accepted you have 4 minutes to complete the task, be mindful of your time. </p> 
@@ -138,7 +138,7 @@
 		<div style="display: none;" id="worker_id_box"><%= @worker_id  %></div>
 		<div style="display: none;" id ="audio_id_box"><%= @audioid %></div>
 		
-		<div style="display: none;" id ="audio_time_box"><% if @audioid === "p1t1" || @audioid === "p1gt2" || @audioid === "p1bt2" %>nt<% else %>t<%end%></div>
+		<div style="display: none;" id ="audio_time_box"><% if @audioid === "p1t1" || @audioid === "p1g2" || @audioid === "p1b2" %>nt<% else %>t<%end%></div>
 		<div style="display: none;" id ="timer_amount_box"><% if @audioid === "p1t5" %>5<% else %>4<%end%></div>
 		<audio controls>
 			<source src= <%= "https://stanford.edu/~niloufar/audio/"+@audioid+".mp3" %> type="audio/mpeg">
