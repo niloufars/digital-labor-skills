@@ -1,7 +1,7 @@
 
 <%= form_tag("https://www.mturk.com/mturk/externalSubmit", :method => "post") do %>
     <p>Enter the text here:<br>
-    	<% if @review == 'g' %>
+    	<% if @audioid === "p1g2"  %>
     		<%= text_area_tag 'data', 'You Can Grow Your Intelligence 
 New Research Shows the Brain Can Be Developed Like a Muscle 
 Many people think of the brain as a mystery. They don’t know much about intelligence and how it works. When they do think about what intelligence is, many people believe that a person is born either smart, average, or dumb—and stays that way for life. But new research shows that the brain is more like a muscle. And scientists have been able to show just how the brain grows and gets stronger when you learn. Everyone knows that when you lift weights, your muscles get bigger and you get stronger. A person who can’t lift 20 pounds when they start exercising can 100 pounds after working out for a long time. That’s because the muscles become larger and stronger with exercise. And when you stop exercising, the muscles shrink and you get weaker. That’s why people say “Use it or lose it!” But most don’t know that when they practice and learn new things,. Inside the cortex of the brain are billions of tiny nerve cells, called neurons. The nerve cells have branches connecting them to other cells in a complicated network. The more that you challenge your mind to learn, the more your brain cells grow. Then, things that you once found very hard or even impossible to do—like speaking a foreign language or doing algebra—seem to become easy. The result is a stronger, smarter brain. 
@@ -14,7 +14,7 @@ Another thing that got scientists thinking about the brain growing and changing 
 
 The Real Truth About “Smart” and “Dumb” 
 No one thinks babies are stupid because they can’t talk. They just haven’t learned how to yet. But some people will call a person dumb if they can’t solve math problems, or spell a word right, or read fast — even though all these things are learned with practice. At first, no one can read or solve equations. But with practice, they can learn to do it. And the more a person learns, the easier it gets to learn new things—because their brain “muscles” have gotten stronger! The students everyone thinks as the “smartest” may not have been born any different from anyone else. But before they started school, they may have started to practice reading. They had already started to build up their “reading muscles.” Then, in the classroom, everyone said, “That’s the smartest student in the class.” They don’t realize that any of the other students could learn to do as well all of those other students learned to speak at least one whole language already—something that grown ups find very hard to do. They just need to build up their “reading muscles” too. What Can You Do to Get Smarter? Just like a weightlifter or a basketball player, to be a brain athlete, you have to exercise and practice. By practicing, you make your brain stronger. You also learn skills that let you use your brain in a smarter way—just like a basketball player learns new moves. But many just like becoming stronger physically or becoming a better ball player does. Sometimes it even hurts! But when you feel yourself get better and stronger, all the work is worth it! ', :cols => 80, :rows => 20 %>
-    	<% elsif @review == 'b' %>
+    	<% elsif @audioid === "p1b2" %>
     		<%= text_area_tag 'data', 'The Specialties of the Brain Revealed 
 New Research Shows That Different Areas of the Brain Have Different Specialties 
 
