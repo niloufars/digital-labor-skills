@@ -118,21 +118,22 @@
 		
 		<% if @review == 'g' or @review == 'b' %>
 			<p>In this task you will be given a five minute audio clip and a transcription. Your task is to listen to the audio and fix any problems in the transcription or fill in any missing parts.</p>
-			<p>If you have any questions, email us at researchproject97@gmail.com</p>
+			
 		<% elsif @review == 'p' %>
 			<p>This is a <span style="text-decoration: underline">timed task</span>, once accepted you have 4 minutes to complete the task, be mindful of your time. </p> 
 			<p>If you achieve a 60% accuracy with the audio your work will be a accepted and you will earn 50 cents. Your earnings will increase with your accuracy, up to a maximum of $1, as illustrated in the figure below. The extra payment will be made through a bonus. If your accuracy is between 50-60% you will be given a chance to fix your errors and earn the base pay. </p>
 			<%= image_tag("Contract3.png", :alt => "bonus", :width => "400px") %>
-
-			<p>Listen to the following audio clip and transcribe it:</p>
+			
+		<% elsif @audioid === "p1t1" || @audioid === "p1gt2" || @audioid === "p1bt2" %>
+			<p>If you achieve a 60% accuracy with the audio your work will be a accepted and you will earn 50 cents (if your accuracy is between 50-60% you will be given a chance to fix your errors). </p>
 		<% else %>
 			<p>This is a <span style="text-decoration: underline">timed task</span>, once accepted you have 4 minutes to complete the task, be mindful of your time. </p> 
 			<p>If you achieve a 60% accuracy with the audio your work will be a accepted and you will earn 50 cents (if your accuracy is between 50-60% you will be given a chance to fix your errors). </p>
-			<p>If you have any questions, email us at researchproject97@gmail.com</p>
-
-			<p>Listen to the following audio clip and transcribe it:</p>
-				
 		<% end %>
+
+		<p>If you have any questions, email us at researchproject97@gmail.com</p>
+
+		<p>Listen to the following audio clip and transcribe it:</p>
 		<div style="display: none;" id="assignment_id_box"><%= @assignment_id  %></div>
 		<div style="display: none;" id="worker_id_box"><%= @worker_id  %></div>
 		<div style="display: none;" id ="audio_id_box"><%= @audioid %></div>
