@@ -48,6 +48,8 @@
 		var formData = new FormData();
 		formData.append('workerID', document.getElementById('worker_id_box').innerHTML);
 		formData.append('audioID', document.getElementById('audio_id_box').innerHTML);
+		formData.append('assignmentID', document.getElementById('assignment_id_box').innerHTML);
+		
 		formData.append('timeAt', timeAt);
 		formData.append('keyCount', handler.keycount);
 		xmlhttp.send(formData);

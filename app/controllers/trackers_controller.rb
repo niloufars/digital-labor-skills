@@ -10,6 +10,7 @@ class TrackersController < ApplicationController
   	@tracker = Tracker.new
   	@tracker.workerID = params['workerID']
     @tracker.audioID = params['audioID']
+    @tracker.assignmentID = params['assignmentID']
     @tracker.timeAt = params['timeAt']
     @tracker.keyCount = params['keyCount']
 
