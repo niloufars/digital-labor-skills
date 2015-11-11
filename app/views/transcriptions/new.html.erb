@@ -98,7 +98,7 @@
 <div id="preview_div">
 	
 
-		<% if @review == 'g' or @review == 'b' %>
+		<% if  @audioid === "p1g2" || @audioid === "p1b2" %>
 			<h1>Transcription review task</h1>
 			<p>In this task you will be given a five minute audio clip and a transcription. Your task is to listen to the audio and fix any problems in the transcription or fill in any missing parts.</p>
 			<p>You will see the audio clip after you accept the task.</p>
@@ -116,7 +116,7 @@
 	<div id="task_div"  style="display:none">
 		<h1>New Transcription</h1>
 		
-		<% if @review == 'g' or @review == 'b' %>
+		<% if @audioid === "p1g2" || @audioid === "p1b2" %>
 			<p>In this task you will be given a five minute audio clip and a transcription. Your task is to listen to the audio and fix any problems in the transcription or fill in any missing parts.</p>
 			
 		<% elsif @review == 'p' %>
