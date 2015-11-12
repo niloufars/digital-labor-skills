@@ -98,6 +98,8 @@
 <div id="preview_div">
 	
 		<% if @review == 'p' %>
+			<h1>Transcription task</h1>
+			<p>In this task you will be given a one minute audio clip to transcribe.</p>
 			<p>This is a <span style="text-decoration: underline">timed task</span>, once accepted you have 4 minutes to complete the task, be mindful of your time. </p> 
 			<p>If you achieve a 60% accuracy with the audio your work will be a accepted and you will earn 50 cents. Your earnings will increase with your accuracy, up to a maximum of $1, as illustrated in the figure below. The extra payment will be made through a bonus. If your accuracy is between 50-60% you will be given a chance to fix your errors and earn the base pay. </p>
 			<%= image_tag("Contract3.png", :alt => "bonus", :width => "400px") %>
