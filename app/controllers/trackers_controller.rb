@@ -13,7 +13,7 @@ class TrackersController < ApplicationController
     @tracker.assignmentID = params['assignmentID']
     @tracker.timeAt = params['timeAt']
     @tracker.keyCount = params['keyCount']
-
+    @tracker.data = params['data']
   	respond_to do |format|
       if @tracker.save
         format.json { render json: @tracker, status: :ok }
