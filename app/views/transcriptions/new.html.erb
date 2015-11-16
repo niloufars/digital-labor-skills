@@ -97,7 +97,16 @@
 </script>
 
 <div id="preview_div">
-		<% if @audioid == 'p1t5' &&  @review == 'p'%>
+		<% if @audioid == 'p1t6' && @review == 'p' %>
+			<h1>Summary task</h1>
+			<p>In this task you will listen to a 2 minute audio clip and write a summary <span style="text-decoration: underline">in your own words.</span></p>
+			<p>Similar to previous tasks, you can earn up to 50 cents in bonus by putting in extra effort into your work.</p>
+			<p>You will see the audio clip after you accept the task.</p>
+		<% elsif @audioid == 'p1t6' %>
+			<h1>Summary task</h1>
+			<p>In this task you will listen to a 2 minute audio clip and write a summary <span style="text-decoration: underline">in your own words.</span></p>
+			<p>You will see the audio clip after you accept the task.</p>
+		<% elsif @audioid == 'p1t5' &&  @review == 'p'%>
 			<h1>Transcription task</h1>
 			<p>In this task you will be given a 1:40 minute audio clip to transcribe.</p>
 			<p>This is a <span style="text-decoration: underline">timed task</span>, once accepted you have 6 minutes to complete the task, be mindful of your time. </p> 
@@ -139,7 +148,14 @@
 
 	<div id="task_div"  style="display:none">
 		<h1>New Transcription</h1>
-		<% if @audioid == 'p1t5' &&  @review == 'p'%>
+		<% if @audioid == 'p1t6' && @review == 'p' %>
+			<h1>Summary task</h1>
+			<p>In this task you will listen to a 2 minute audio clip and write a summary <span style="text-decoration: underline">in your own words.</span></p>
+			<p>Similar to previous tasks, you can earn up to 50 cents in bonus by putting in extra effort into your work.</p>
+		<% elsif @audioid == 'p1t6' %>
+			<h1>Summary task</h1>
+			<p>In this task you will listen to a 2 minute audio clip and write a summary <span style="text-decoration: underline">in your own words.</span></p>
+		<% elsif @audioid == 'p1t5' &&  @review == 'p'%>
 			<h1>Transcription task</h1>
 			<p>In this task you will be given a 1:40 minute audio clip to transcribe.</p>
 			<p>This is a <span style="text-decoration: underline">timed task</span>, once accepted you have 6 minutes to complete the task, be mindful of your time. </p> 
@@ -173,7 +189,7 @@
 		<div style="display: none;" id="worker_id_box"><%= @worker_id  %></div>
 		<div style="display: none;" id ="audio_id_box"><%= @audioid %></div>
 		
-		<div style="display: none;" id ="audio_time_box"><% if @audioid === "p1t1" || @audioid === "p1g2" || @audioid === "p1b2" %>nt<% else %>t<%end%></div>
+		<div style="display: none;" id ="audio_time_box"><% if @audioid === "p1t1" || @audioid === "p1g2" || @audioid === "p1b2" || @audioid == "p1t6" %>nt<% else %>t<%end%></div>
 		<div style="display: none;" id ="timer_amount_box"><% if @audioid === "p1t5" %>6<% else %>4<%end%></div>
 		<audio controls>
 			<source src= <%= "https://stanford.edu/~niloufar/audio/"+@audioid+".mp3" %> type="audio/mpeg">
