@@ -3,7 +3,7 @@ class TrackersController < ApplicationController
   	@tracker = Tracker.new
   end
   def index
-    @trackers = Tracker.all
+    @trackers = Tracker.last(30)
   end
 
   def create
