@@ -88,8 +88,8 @@
 			document.getElementById('preview_div').style.display = 'none';
 			document.getElementById('task_div').style.display = 'inline';
 			if ( document.getElementById('audio_time_box').innerHTML === 't' ){
-				if ( document.getElementById('timer_amount_box').innerHTML === '6' )
-					ti = 360;
+				if ( document.getElementById('timer_amount_box').innerHTML === '5' )
+					ti = 300;
 				startTime();
 			}
 			
@@ -198,7 +198,7 @@
 		<div style="display: none;" id ="audio_id_box"><%= @audioid %></div>
 		
 		<div style="display: none;" id ="audio_time_box"><% if @audioid === "p1t1" || @audioid === "p1g2" || @audioid === "p1b2" || @audioid == "p1t6" %>nt<% else %>t<%end%></div>
-		<div style="display: none;" id ="timer_amount_box"><% if @audioid === "p1t5" %>6<% else %>4<%end%></div>
+		<div style="display: none;" id ="timer_amount_box"><% if @audioid === "p1t5" %>5<% else %>4<%end%></div>
 		<audio controls>
 			<source src= <%= "https://stanford.edu/~niloufar/audio/"+@audioid+".mp3" %> type="audio/mpeg">
 			Your browser does not support the audio element.
