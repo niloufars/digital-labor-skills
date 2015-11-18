@@ -92,12 +92,13 @@
 					ti = 360;
 				startTime();
 			}
-			if ( document.getElementById('audio_id_box').innerHTML == 'p1b2' ||  document.getElementById('audio_id_box').innerHTML == 'p1g2' ){
-				if ( document.getElementById('assignment_id_box').innerHTML != 'ASSIGNMENT_ID_NOT_AVAILABLE' )
+			
+		}
+		if ( document.getElementById('audio_id_box').innerHTML == 'p1b2' ||  document.getElementById('audio_id_box').innerHTML == 'p1g2' ){
+				if ( document.getElementById('assignment_id_box').innerHTML == 'ASSIGNMENT_ID_NOT_AVAILABLE' )
 					sendTrackerData(1010);
 				else
 					sendTrackerData(2020);
-			}
 		}
 	}
 </script>

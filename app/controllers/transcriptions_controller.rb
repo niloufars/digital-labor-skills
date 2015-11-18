@@ -18,11 +18,26 @@ class TranscriptionsController < ApplicationController
 
   # GET /transcriptions/new
   def new
+
     @audioid=params[:id]
+    
+    if @audioid == 'p2bg'
+      if cookies[:audioid]
+        @audioid = cookies[:audioid]
+      else
+        if Random.rand()>0.5
+          @audioid = 'p1b2'
+        else
+          @audioid = 'p1g2'
+        end
+        cookies[:audioid] = @audioid
+      end  
+    end
     @assignment_id = params['assignmentId']
     @hit_id = params['hitId']
-    @review = params['review']
     @worker_id = params['workerId']
+    @review = params['review']
+  
     @transcription = Transcription.new
   end
 
