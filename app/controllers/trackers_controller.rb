@@ -5,7 +5,9 @@ class TrackersController < ApplicationController
   def index
     @trackers = Tracker.last(30)
   end
-
+  def show
+    @trackers = Tracker.where(workerID: params['workerID'])
+  end
   def create
   	@tracker = Tracker.new
   	@tracker.workerID = params['workerID']

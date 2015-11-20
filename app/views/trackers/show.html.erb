@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Trackers</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Worker ID</th>
+      <th>Audio</th>
+      <th>Time left</th>
+      <th>Keycount</th>
+      <th>AssignmentID</th>
+      <th>Time</th>
+      <th>data</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @trackers.each do |tr| %>
+      <tr>
+        <td><%= tr.workerID %></td>
+        <td><%= tr.audioID %></td>
+        <td><%= tr.timeAt %></td>
+        <td><%= tr.keyCount %></td>
+        <td><%= tr.assignmentID %></td>
+        <td><%= tr.created_at %></td>
+        <td><%= tr.data %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
